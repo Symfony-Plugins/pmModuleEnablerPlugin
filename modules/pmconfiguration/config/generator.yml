@@ -1,0 +1,26 @@
+generator:
+  class: sfPropelRevisitedGenerator
+  param:
+    model_class:           pmConfiguration
+    theme:                 extended
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          pm_configuration
+    with_propel_route:     1
+
+    config:
+      actions: ~
+      fields:
+        enabled_modules:
+          label: Módulos activados
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:
+        title: Activar/desactivar módulos
+        actions:
+          _list:
+          _save:
+      new:     ~
