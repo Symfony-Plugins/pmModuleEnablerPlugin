@@ -19,8 +19,7 @@ generator:
       filter:  ~
       form:    ~
       edit:
-        title: Activar/desactivar módulos
+        title: Activar/desactivar addons
         actions:
-          _list:
           _save:
       new:     ~

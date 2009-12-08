@@ -38,10 +38,10 @@ Installation
   * Configure the plugin
 
         [yml]
-        # in apps/<app>/backend/config/app.yml
+        # in apps/<app>/config/app.yml
         all:
           # ...
-          pm_module_loader:
+          pm_module_enabler:
             always_enabled: [default, pmconfiguration] # this means that default and pmconfiguration modules will be always enabled
             modules_names:
               coolModule: Cool module                  # label to show in the checkbox

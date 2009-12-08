@@ -23,7 +23,7 @@ class pmConfiguration extends BasepmConfiguration
   public function loadModules()
   {
     $enabled_modules = sfConfig::get('sf_enabled_modules', array());
-    $always_enabled = sfConfig::get('app_pm_module_loader_always_enabled', array());
+    $always_enabled = sfConfig::get('app_pm_module_enabler_always_enabled', array());
 
     foreach ($enabled_modules as $enabled_module)
     {
@@ -46,7 +46,7 @@ class pmConfiguration extends BasepmConfiguration
   public function isEnabled($module_name)
   {
     $ret = false;
-    $always_enabled = sfConfig::get('app_pm_module_loader_always_enabled', array());
+    $always_enabled = sfConfig::get('app_pm_module_enabler_always_enabled', array());
 
     if ($module_name == 'pmconfiguration')
     {

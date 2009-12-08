@@ -34,7 +34,7 @@ class pmConfigurationForm extends BasepmConfigurationForm
 
     $enabled_ids = $request->getParameter('pm_configuration[enabled_modules]');
 
-    $all_dependencies = sfConfig::get('app_pm_module_loader_dependencies', array());
+    $all_dependencies = sfConfig::get('app_pm_module_enabler_dependencies', array());
 
     foreach ($this->getObject()->getpmModules() as $pm_module)
     {
