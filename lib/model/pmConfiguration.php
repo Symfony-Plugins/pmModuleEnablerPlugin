@@ -13,9 +13,9 @@ class pmConfiguration extends BasepmConfiguration
       {
         self::$instance = new self();
         self::$instance->save();
+        self::$instance->loadModules();
       }
     }
-    self::$instance->loadModules();
 
     return self::$instance;
   }
@@ -60,6 +60,11 @@ class pmConfiguration extends BasepmConfiguration
       }
       else
       {
+        $c = new Criteria();
+        $c->add(pmModulePeer::NAME, $module_name);
+        $pm_module = pmModulePeer::doSelectOne($c);
+        $ret = $pm_module?$pm_module->getIsEnabled():false;
+        /*
         foreach ($this->getpmModules() as $pm_module)
         {
           if ($pm_module->getName() == $module_name && $pm_module->getIsEnabled())
@@ -67,6 +72,7 @@ class pmConfiguration extends BasepmConfiguration
             $ret = true;
           }
         }
+        */
       }
     }
 
