@@ -54,7 +54,7 @@ class pmConfiguration extends BasepmConfiguration
     }
     else
     {
-      if (!in_array($module_name, sfConfig::get('sf_enabled_modules')) || in_array($module_name, $always_enabled))
+      if (!in_array($module_name, sfConfig::get('sf_enabled_modules')) || in_array($module_name, $always_enabled) || $module_name == "default")
       {
         $ret = true;
       }
@@ -64,15 +64,6 @@ class pmConfiguration extends BasepmConfiguration
         $c->add(pmModulePeer::NAME, $module_name);
         $pm_module = pmModulePeer::doSelectOne($c);
         $ret = $pm_module?$pm_module->getIsEnabled():false;
-        /*
-        foreach ($this->getpmModules() as $pm_module)
-        {
-          if ($pm_module->getName() == $module_name && $pm_module->getIsEnabled())
-          {
-            $ret = true;
-          }
-        }
-        */
       }
     }
 
