@@ -54,7 +54,7 @@ class pmConfiguration extends BasepmConfiguration
     }
     else
     {
-      if (!in_array($module_name, sfConfig::get('sf_enabled_modules')) || in_array($module_name, $always_enabled) || $module_name == "default")
+      if (!in_array($module_name, sfConfig::get('sf_enabled_modules')) || in_array($module_name, $always_enabled))
       {
         $ret = true;
       }

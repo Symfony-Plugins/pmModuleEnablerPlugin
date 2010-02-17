@@ -5,7 +5,7 @@ class pmModuleEnablerFilter extends sfFilter
   public function execute($filterChain)
   {
     if (
-      (sfConfig::get('sf_login_module') == $this->context->getModuleName()) && (sfConfig::get('sf_login_action') == $this->context->getActionName())
+      (sfConfig::get('sf_login_module') == $this->context->getModuleName())
       ||
       (sfConfig::get('sf_secure_module') == $this->context->getModuleName()) && (sfConfig::get('sf_secure_action') == $this->context->getActionName())
     )
