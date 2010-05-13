@@ -23,7 +23,7 @@ class pmConfigurationForm extends BasepmConfigurationForm
     $this->widgetSchema['enabled_modules']->setDefault($this->getObject()->getDefaults());
 
     $this->validatorSchema['enabled_modules'] = new sfValidatorPropelChoiceMany(array('model' => 'pmModule',
-                                                                                      'required' => 'false'));
+                                                                                      'required' => false));
   }
 
   public function doSave($con = null)
