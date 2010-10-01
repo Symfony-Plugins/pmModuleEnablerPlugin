@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelRevisitedGenerator
+  class: sfPropelGenerator
   param:
     model_class:           pmConfiguration
-    theme:                 extended
+    theme:                 admin
     non_verbose_templates: true
     with_show:             false
     singular:              ~

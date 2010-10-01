@@ -17,22 +17,26 @@ class pmConfigurationForm extends BasepmConfigurationForm
       $this["updated_at"]
     );
 
-    $this->widgetSchema['enabled_modules'] = new sfWidgetFormPropelChoiceMany(array('model' => 'pmModule',
-                                                                                    'renderer_class' => 'sfWidgetFormSelectCheckbox'));
-
+    $this->widgetSchema["enabled_modules"] = new sfWidgetFormPropelChoice(array(
+      "model" => "pmModule",
+      "multiple" => true,
+      "expanded" => true
+    ));
+    
+    $this->validatorSchema["enabled_modules"] = new sfValidatorPropelChoice(array(
+      "model" => "pmModule",
+      "multiple" => true,
+      "required" => false
+    ));
+    
     $this->widgetSchema['enabled_modules']->setDefault($this->getObject()->getDefaults());
-
-    $this->validatorSchema['enabled_modules'] = new sfValidatorPropelChoiceMany(array('model' => 'pmModule',
-                                                                                      'required' => false));
   }
 
   public function doSave($con = null)
   {
     parent::doSave($con);
 
-    $request = sfContext::getInstance()->getRequest();
-
-    $enabled_ids = $request->getParameter('pm_configuration[enabled_modules]');
+    $enabled_ids = $this->getValue('enabled_modules');
 
     $all_dependencies = sfConfig::get('app_pm_module_enabler_dependencies', array());
 
